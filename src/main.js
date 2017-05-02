@@ -4,8 +4,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import App from './dashboard/containers/App';
 import reducers from './sharedResources/rootReducer';
-
-let store = createStore(reducers, applyMiddleware(thunk));
+import store from './sharedResources/store/configureStore';
 
 ReactDOM.render(
   <Provider store={store}>

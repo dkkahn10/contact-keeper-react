@@ -1,9 +1,14 @@
 import 'babel-polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './containers/App';
+import { Provider } from 'react-redux';
+import App from './dashboard/containers/App';
+import reducers from './sharedResources/rootReducer';
+import store from './sharedResources/store/configureStore';
 
 ReactDOM.render(
-  <App />,
+  <Provider store={store}>
+    <App />
+  </Provider>,
   document.getElementById('root')
 );

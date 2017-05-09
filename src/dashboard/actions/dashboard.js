@@ -9,7 +9,7 @@ export {
 export const getGiphySuccess = data => {
   return {
     type: 'FETCH_GIPHY_PROFILE_SUCCESS',
-    giph: data
+    giph: data.data[0].images.fixed_width.url
   }
 }
 
@@ -19,7 +19,8 @@ export const getGiphyProfile = () => {
       let giph = response.json()
       return giph
     }).then(giph => {
-      return dispatch(getGiphySuccess(giph.giph))
+      debugger;
+      return dispatch(getGiphySuccess(giph))
     })
   }
 }

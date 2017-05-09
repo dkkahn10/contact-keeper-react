@@ -1,15 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import * as actionCreators from '../actions/dashboard.js'
 import { getGiphyProfile } from '../actions/dashboard';
 
 class App extends Component {
+  componentDidMount(){
+    this.props.getGiphyProfile()
+  }
+
   render() {
     return (
       <div className="app">
         <div className="app-header">
           <h2>Welcome Mike</h2>
+          <img src={this.props.gif} />
         </div>
       </div>
     );
@@ -17,13 +20,18 @@ class App extends Component {
 }
 
 const mapStateToProps = state => {
+  debugger;
   return {
-    giph: state.giph
+    gif: state.giph.giph
   }
 }
 
 const mapDispatchToProps = dispatch => {
-  return bindActionCreators(actionCreators, dispatch);
+  return {
+    getGiphyProfile: () => {
+      dispatch(getGiphyProfile())
+    }
+  }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

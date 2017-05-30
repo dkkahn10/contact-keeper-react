@@ -19,7 +19,6 @@ export const getGiphyProfile = () => {
       let giph = response.json()
       return giph
     }).then(giph => {
-      debugger;
       return dispatch(getGiphySuccess(giph))
     })
   }

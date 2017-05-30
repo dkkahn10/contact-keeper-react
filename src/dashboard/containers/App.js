@@ -20,7 +20,6 @@ class App extends Component {
 }
 
 const mapStateToProps = state => {
-  debugger;
   return {
     gif: state.giph.giph
   }
